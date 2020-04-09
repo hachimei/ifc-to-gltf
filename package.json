@@ -1,0 +1,33 @@
+{
+  "name": "ifc-2-gltf",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "./index.js clean",
+    "draco": "./index.js draco",
+    "glb": "./index.js glb",
+    "start": "./index.js -i ./ifc/f1.ifc",
+    "start-group": "./index.js group"
+  },
+  "keywords": [
+    "ifc-to-gltf",
+    "ifc-2-gltf"
+  ],
+  "author": "Philipp Ritzberger",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "clear": "^0.1.0",
+    "cli-progress": "^3.6.1",
+    "configstore": "^5.0.1",
+    "figlet": "^1.3.0",
+    "fs-extra": "^9.0.0",
+    "gltf-pipeline": "^2.1.9",
+    "ifc-convert": "^1.2.0",
+    "obj2gltf": "^3.1.0"
+  },
+  "bin": {
+    "ifc-2-gltf": "./index.js"
+  }
+}
