@@ -16,13 +16,13 @@ console.log(
   chalk.yellow(figlet.textSync('ifc-to-gltf', { horizontalLayout: 'full' }))
 )
 
-if (process.argv[2] == '-i') {
-  if (process.argv[3] != '') {
+if (process.argv[2] === '-i') {
+  if (process.argv[3] !== '') {
     fs.ensureFile('./' + process.argv[3])
       .then(() => {
         files.clean()
         files.singleConvert(
-          './' + process.argv[3],
+          process.argv[3],
           process.argv[4] ? process.argv[4] : 'f1'
         )
       })
@@ -30,18 +30,19 @@ if (process.argv[2] == '-i') {
         console.log(chalk.red(err))
       })
   }
-} else if (process.argv[2] == 'clean') {
+} else if (process.argv[2] === 'clean') {
   files.clean()
-} else if (process.argv[2] == 'group') {
+} else if (process.argv[2] === 'group') {
   files.clean()
 
   let list = ['f1', 'f2', 'f3']
-  files.groupConvert('./ifc/', list)
-} else if (process.argv[2] == 'draco') {
+  // let list = ['f1', 'f2', 'f3']
+  files.groupConvert('ifc/', list)
+} else if (process.argv[2] === 'draco') {
   console.log(chalk.green('to darco...'))
   let fileNameList = folderUtil.getFolderFiles('dist/gltfs')
   toDracoUtil.toDraco(fileNameList)
-} else if (process.argv[2] == 'glb') {
+} else if (process.argv[2] === 'glb') {
   console.log(chalk.green('to glb...'))
   toGlbUtil.toGlb()
 } else {

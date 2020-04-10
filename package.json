@@ -7,7 +7,7 @@
     "clean": "./index.js clean",
     "draco": "./index.js draco",
     "glb": "./index.js glb",
-    "start": "./index.js -i ./ifc/f1.ifc",
+    "start": "./index.js -i ./demo.ifc demo",
     "start-group": "./index.js group"
   },
   "keywords": [
