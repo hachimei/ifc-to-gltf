@@ -20,7 +20,7 @@ if (process.argv[2] === '-i') {
   if (process.argv[3] !== '') {
     fs.ensureFile('./' + process.argv[3])
       .then(() => {
-        files.clean()
+        // files.clean()
         files.singleConvert(
           process.argv[3],
           process.argv[4] ? process.argv[4] : 'f1'
@@ -35,13 +35,18 @@ if (process.argv[2] === '-i') {
 } else if (process.argv[2] === 'group') {
   files.clean()
 
-  let list = ['f1', 'f2', 'f3']
+  folderUtil.getFolderFiles('ifc/01').then((list) => {
+    files.groupConvert('ifc/01/', list)
+  })
   // let list = ['f1', 'f2', 'f3']
-  files.groupConvert('ifc/', list)
+  // files.groupConvert('ifc/', list)
+  
 } else if (process.argv[2] === 'draco') {
   console.log(chalk.green('to darco...'))
-  let fileNameList = folderUtil.getFolderFiles('dist/gltfs')
-  toDracoUtil.toDraco(fileNameList)
+  folderUtil.getFolderFiles('dist/gltfs').then((fileNameList) => {
+    toDracoUtil.toDraco(fileNameList)
+  })
+  
 } else if (process.argv[2] === 'glb') {
   console.log(chalk.green('to glb...'))
   toGlbUtil.toGlb()

@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "./index.js clean",
-    "draco": "./index.js draco",
-    "glb": "./index.js glb",
-    "start": "./index.js -i ./demo.ifc demo",
-    "start-group": "./index.js group"
+    "clean": "node index.js clean",
+    "draco": "node index.js draco",
+    "glb": "node index.js glb",
+    "start": "node index.js -i ./ifc/01/xiaofang.ifc xiaofang",
+    "start-group": "node index.js group"
   },
   "keywords": [
     "ifc-to-gltf",
